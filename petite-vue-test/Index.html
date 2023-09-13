@@ -1,0 +1,81 @@
+<!--
+ * @Author: AllenXD
+ * @Date: 2023-09-13 12:18:43
+ * @Email: xudong@adbright.cn
+ * @LastEditors: AllenXD
+ * @LastEditTime: 2023-09-13 12:47:52
+ * @Description: file information
+ * @Company: your company
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PetiteVueTest</title>
+  <style>
+    main {
+      width: 200px;
+      margin: auto;
+      margin-top: 100px;
+      font-size: 18px;
+      color: #333;
+      border-radius: 5px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 10px;
+      border: 1px solid rgba(73, 135, 70, 0.75);
+      transition: all 600ms linear;
+    }
+    main:hover {
+      box-shadow: 0px 6px 18px rgba(73, 135, 70, 0.75);
+    }
+    button {
+      background-color: transparent;
+      outline: none;
+      border: 1px solid rgba(73, 135, 70, 0.75);
+      border-radius: 5px;
+      cursor: pointer;
+      padding: 5px 18px;
+      margin: 10px 0;
+      transition: backgroundColor 500ms linear;
+    }
+    button:hover {
+      color: #fff;
+      background-color: rgba(73, 135, 70, 0.75);
+    }
+    [v-cloak] {
+      opacity: 0;
+    }
+  </style>
+</head>
+<body>
+  <script type="module">
+    import { createApp, reactive } from 'https://unpkg.com/petite-vue?module'
+
+    const store = reactive({
+      count: 0,
+      msg: 'Hello Vue',
+      inc() {
+        this.count++
+      }
+    })
+
+    store.inc()
+
+    createApp({
+      store
+    }).mount()
+  </script>
+
+  <main v-scope="{ localCount: 0 }">
+    <div v-cloak>{{ store.msg }}</div>
+    <button @click="store.inc">addInt</button>
+    <p v-cloak>count: {{ store.count }}</p>
+    <button @click="localCount++">addLocInt</button>
+    <p v-cloak>localCount: {{ localCount }}</p>
+  </main>
+</body>
+</html>
