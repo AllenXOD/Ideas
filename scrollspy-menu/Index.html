@@ -1,0 +1,38 @@
+<!--
+ * @Author: AllenXD
+ * @Date: 2023-09-15 10:52:39
+ * @Email: xudong@adbright.cn
+ * @LastEditors: AllenXD
+ * @LastEditTime: 2023-09-15 13:39:05
+ * @Description: file information
+ * @Company: your company
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>滚动式菜单</title>
+  <link rel="stylesheet" href="./Index.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <template v-for="(item, index) in store.navList">
+        <a :class="{'nav-link': true, active: store.active === index}" :href="item.href" :key="item.text" :style="`--col: ${item.color}`" :data-active="item.href">
+          <i :class="`fas fa-${item.icon}`"></i>
+          <span class="text">{{item.text}}</span>
+        </a>
+      </template>
+      <div class="indicator"></div>
+    </nav>
+  </header>
+  <section id="home">Home</section>
+  <section id="profile">Profile</section>
+  <section id="messages">Messages</section>
+  <section id="photos">Photos</section>
+  <section id="setting">Setting</section>
+
+  <script src="./Index.js" type="module"></script>
+</body>
+</html>
