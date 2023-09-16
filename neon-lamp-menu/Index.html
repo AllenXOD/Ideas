@@ -1,0 +1,29 @@
+<!--
+ * @Author: AllenXD
+ * @Date: 2023-09-16 10:51:57
+ * @Email: xudong@adbright.cn
+ * @LastEditors: AllenXD
+ * @LastEditTime: 2023-09-16 11:14:45
+ * @Description: file information
+ * @Company: your company
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>霓虹灯动画菜单</title>
+  <link rel="stylesheet" href="./Index.css">
+</head>
+<body>
+  <ul class="nav">
+    <template v-for="(item, index) in store.navList">
+      <li class="nav-item" :style="`--clr: ${item.color}`">
+        <a class="nav-item-link" href="javascript: void(0);" :data-text="`&nbsp;${item.text}`">&nbsp;{{item.text}}</a>
+      </li>
+    </template>
+  </ul>
+
+  <script src="./Index.js" type="module"></script>
+</body>
+</html>
