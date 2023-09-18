@@ -1,0 +1,62 @@
+@import "../common.scss";
+
+$themes: (
+  dark: (
+    background-color: #C7D1CD,
+    header-color: rgba($color: #000, $alpha: 0.25),
+    button-color: rgba($color: purple, $alpha: 0.25)
+  ),
+  sun: (
+    background-color: #581C26,
+    header-color: rgba($color: #fff, $alpha: 0.25),
+    button-color: rgba($color: pink, $alpha: 0.25)
+  )
+);
+
+@mixin get-bgc ($data) {
+  @each $themename, $theme in $themes {
+    [data-theme='#{$themename}'] & {
+      background-color: map-get($map: $theme, $key: $data);
+    }
+  }
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  @include get-bgc('background-color');
+}
+
+.my-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 40px;
+  border-radius: 0 0 10px 10px;
+  transition: 200ms;
+  @include get-bgc('header-color');
+  backdrop-filter: blur(4px);
+  box-shadow: 0 6px 32px 0 rgba(31, 38, 135, 0.3);
+}
+
+.my-button {
+  width: 120px;
+  height: 40px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 5px;
+  color: #fff;
+  transition: 200ms;
+  @include get-bgc('button-color');
+  backdrop-filter: blur(4px);
+  box-shadow: 0 6px 22px 0 rgba(31, 38, 135, 0.3);
+}
+
+[v-cloak] {
+  display: none;
+}

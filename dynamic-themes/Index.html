@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" :data-theme="store.theme === 0 ? 'dark' : 'sun'">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>scss动态主题色方案</title>
+  <link rel="stylesheet" href="./Index.css">
+</head>
+<body>
+  <div v-cloak></div>
+  <header class="my-header"></header>
+  <button class="my-button" @click="store.changeTheme">set theme</button>
+
+  <script type="module" src="./Index.js"></script>
+</body>
+</html>
