@@ -4,7 +4,7 @@ $themes: (
   dark: (
     background-color: #C7D1CD,
     header-color: rgba($color: #000, $alpha: 0.25),
-    button-color: rgba($color: purple, $alpha: 0.25)
+    button-color: var(--button-color, rgba($color: purple, $alpha: 0.25))
   ),
   sun: (
     background-color: #581C26,

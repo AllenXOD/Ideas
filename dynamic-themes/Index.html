@@ -7,9 +7,10 @@
   <link rel="stylesheet" href="./Index.css">
 </head>
 <body>
-  <div v-cloak></div>
   <header class="my-header"></header>
-  <button class="my-button" @click="store.changeTheme">set theme</button>
+  <div v-cloak @vue:mounted="store.mounted($el)" data-color="rgba(245, 237, 133, 0.85)">
+    <button class="my-button" @click="store.changeTheme">set theme</button>
+  </div>
 
   <script type="module" src="./Index.js"></script>
 </body>
