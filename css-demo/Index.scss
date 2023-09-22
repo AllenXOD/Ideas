@@ -1,0 +1,97 @@
+@import "../common.scss";
+
+body {
+  padding: 50px;
+  background-color: rgba($color: #ddd, $alpha: 0.25);
+}
+
+main {
+  width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  border-radius: 10px;
+  opacity: 0.95;
+  background-color: rgba($color: #fff, $alpha: 1);
+  box-shadow: 0 4px 6px rgba($color: #000, $alpha: 0.35);
+
+  h1 {
+    margin-bottom: 10px;
+    font-size: 18px;
+  }
+
+  h3 {
+    margin: 10px 0;
+    font-size: 16px;
+  }
+
+  .line {
+    width: 100%;
+    padding: 5px;
+    border-bottom: 1px solid #ccc;
+  }
+}
+
+.hidden {
+  .uniline-hidden {
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+  }
+
+  .multiline-hidden {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3; //行数
+    overflow: hidden;
+  }
+
+  .line-hidden {
+    --line: 2;
+  
+    position: relative;
+    line-height: 20px;
+    overflow: hidden;
+    max-height: calc(20px * var(--line));
+  
+    &::after {
+      content: "...";
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      padding-left: 30px;
+      background: linear-gradient(to right, transparent, #fff 55%);
+    }
+  }
+}
+
+.triangle {
+  display: flex;
+  justify-content: space-between;
+
+  div {
+    width: 0;
+    height: 0;
+    border: 10px solid #333;
+    margin-right: 10px;
+    &.top {
+      border-top-color: transparent;
+      border-left-color: transparent;
+      border-right-color: transparent;
+    }
+    &.right {
+      border-top-color: transparent;
+      border-right-color: transparent;
+      border-bottom-color: transparent;
+    }
+    &.bottom {
+      border-left-color: transparent;
+      border-right-color: transparent;
+      border-bottom-color: transparent;
+    }
+    &.left {
+      border-top-color: transparent;
+      border-left-color: transparent;
+      border-bottom-color: transparent;
+    }
+  }
+}
