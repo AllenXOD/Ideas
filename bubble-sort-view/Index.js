@@ -3,7 +3,7 @@
  * @Date: 2023-09-23 19:37:31
  * @Email: xudong@adbright.cn
  * @LastEditors: AllenXD
- * @LastEditTime: 2023-09-24 10:55:06
+ * @LastEditTime: 2023-09-24 11:01:46
  * @Description: file information
  * @Company: your company
  */
@@ -88,7 +88,7 @@ const bubbleSort = async () => {
 }
 
 const main = async  () => {
-  random.innerHTML = renderElement(randomArray)
+  random.innerHTML += renderElement(randomArray)
 
   await bubbleSort()
 
