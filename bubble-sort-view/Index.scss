@@ -1,0 +1,59 @@
+@import "../common.scss";
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.random {
+  display: flex;
+  user-select: none;
+  align-items: flex-end;
+
+  &-item {
+    justify-content: center;
+    position: relative;
+    width: 35px;
+    background-color: rgb(158, 207, 224);
+    margin: 5px;
+
+    span {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translate(-50%, 0);
+      padding: 0;
+      margin: auto;
+      color: #666;
+      font-weight: 600;
+    }
+  }
+
+  .move-right,
+  .move-left,
+  .checking {
+    background-color: #D24E77;
+  }
+  .move-left {
+    animation: move-left 300ms forwards;
+  }
+  .move-right {
+    animation: move-right 300ms forwards;
+  }
+  .done {
+    background-color: rgb(253, 148, 10);
+  }
+}
+
+@keyframes move-left {
+  0% { left: 0; }
+  40% { left: 0; }
+  100% { left: -45px; }
+}
+@keyframes move-right {
+  0% { left: 0; }
+  40% { left: 0; }
+  100% { left: 45px; }
+}
