@@ -48,7 +48,6 @@ body {
     }
   }
 
-  .move,
   .move-right,
   .move-left,
   .checking {
@@ -66,12 +65,12 @@ body {
 }
 
 @keyframes move-left {
-  0% { left: 0; }
-  40% { left: 0; }
-  100% { left: -45px; }
+  0% { transform: translateX(0); }
+  40% { transform: translateX(0); }
+  100% { transform: translateX(-45px); }
 }
 @keyframes move-right {
-  0% { left: 0; }
-  40% { left: 0; }
-  100% { left: 45px; }
+  0% { transform: translateX(0); }
+  40% { transform: translateX(0); }
+  100% { transform: translateX(45px); }
 }
