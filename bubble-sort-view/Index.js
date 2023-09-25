@@ -3,15 +3,15 @@
  * @Date: 2023-09-23 19:37:31
  * @Email: xudong@adbright.cn
  * @LastEditors: AllenXD
- * @LastEditTime: 2023-09-24 11:01:46
+ * @LastEditTime: 2023-09-25 20:42:07
  * @Description: file information
  * @Company: your company
  */
-import { Slot } from './Slot.js'
+import { Random } from '../public/Random.js'
 
-const slot = new Slot();
-const lenOfRandomArray = slot.lenOfRandom()
-const randomArray = slot.randomArray(lenOfRandomArray)
+const ran = new Random();
+const lenOfRandomArray = ran.lenOfRandom()
+const randomArray = ran.randomArray(lenOfRandomArray)
 const random = document.querySelector('.random')
 
 // Todo: 渲染随机数据
@@ -50,7 +50,7 @@ const checking = async (leftIndex, rightIndex, ms) => {
 
   random.children[leftIndex].classList.add('checking')
   random.children[rightIndex].classList.add('checking')
-  await slot.sleep(ms)
+  await ran.sleep(ms)
   random.children[leftIndex].classList.remove('checking')
   random.children[rightIndex].classList.remove('checking')
 }
@@ -66,14 +66,14 @@ const bubbleSort = async () => {
     if (randomArray[leftIndex] > randomArray[rightIndex]) {
       swap(leftIndex, rightIndex)
       // console.log(`swap ${leftIndex} and ${rightIndex}`)
-      await slot.sleep(800)
+      await ran.sleep(800)
       if (rightIndex + 1 < lenOfRandomArray && randomArray[rightIndex] > randomArray[rightIndex + 1]) {
         checking(rightIndex, rightIndex + 1, 300)
-        await slot.sleep(300)
+        await ran.sleep(300)
       }
     } else {
       checking(leftIndex, rightIndex, 800)
-      await slot.sleep(800)
+      await ran.sleep(800)
     }
     if (rightIndex + 1 === indexOfLastSortedNum) {
       random.children[rightIndex].classList.add('done')

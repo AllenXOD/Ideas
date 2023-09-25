@@ -3,11 +3,11 @@
  * @Date: 2023-09-23 19:57:34
  * @Email: xudong@adbright.cn
  * @LastEditors: AllenXD
- * @LastEditTime: 2023-09-23 20:08:20
+ * @LastEditTime: 2023-09-25 20:42:12
  * @Description: file information
  * @Company: your company
  */
-export class Slot {
+export class Random {
   sleep (ms) {
     return new Promise(reslove => setTimeout(reslove, ms))
   }
