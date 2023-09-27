@@ -3,11 +3,11 @@
  * @Date: 2023-09-15 10:52:48
  * @Email: xudong@adbright.cn
  * @LastEditors: AllenXD
- * @LastEditTime: 2023-09-15 13:39:00
+ * @LastEditTime: 2023-09-27 10:38:49
  * @Description: file information
  * @Company: your company
  */
-import { createApp, reactive, nextTick } from '../public/petite-vue-module.js'
+import { createApp, reactive, nextTick } from '../../public/petite-vue-module.js'
 
 const store = reactive({
   active: 0,

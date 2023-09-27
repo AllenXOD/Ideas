@@ -1,0 +1,149 @@
+{
+  "main": {
+    "id": "c7091558ca01f65d",
+    "type": "split",
+    "children": [
+      {
+        "id": "953b360f30308cbf",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "e79720fbb93b824e",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "a5276f2468b0f0aa",
+    "type": "split",
+    "children": [
+      {
+        "id": "a0533a37b619b771",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "203af654e83777bf",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "82450b6e9ee13ee9",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "711f1c1cab1fafe8",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "867bdf3203ee1598",
+    "type": "split",
+    "children": [
+      {
+        "id": "281e0aecf5c26c8e",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "bde8b3c960ff51bc",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "a09be27a98cb7dd5",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "c74c537c740271bb",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "e6312dcfc53698c2",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false
+    }
+  },
+  "active": "e79720fbb93b824e",
+  "lastOpenFiles": [
+    "study_md/md_record/20230927.md",
+    "study_md/md_record/20220824.md",
+    "Markdown 高级语法.md",
+    "Style/menu.md",
+    "obsidian.css"
+  ]
+}
