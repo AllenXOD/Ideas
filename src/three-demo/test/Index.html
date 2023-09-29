@@ -1,0 +1,31 @@
+<!--
+ * @Author: AllenXD
+ * @Date: 2023-09-29 21:02:29
+ * @Email: xudong@adbright.cn
+ * @LastEditors: AllenXD
+ * @LastEditTime: 2023-09-29 21:30:47
+ * @Description: file information
+ * @Company: your company
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>测试three</title>
+</head>
+<body>
+
+  <!-- 老版本浏览器/非常规浏览器支持 script importmap -->
+  <script async src="https://ga.jspm.io/npm:es-module-shims@1.8.0/dist/es-module-shims.js"></script>
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "/public/three-0.157.0/three.module.min.js",
+        "three/addons/": "/public/three-0.157.0/jsm/"
+      }
+    }
+  </script>
+  <script type="module" src="./Index.js"></script>
+</body>
+</html>
