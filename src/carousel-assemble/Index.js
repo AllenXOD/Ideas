@@ -3,7 +3,7 @@
  * @Date: 2023-09-29 10:30:16
  * @Email: xudong@adbright.cn
  * @LastEditors: AllenXD
- * @LastEditTime: 2023-09-29 11:16:39
+ * @LastEditTime: 2023-09-29 13:09:33
  * @Description: file information
  * @Company: your company
  */
@@ -67,8 +67,17 @@ const renderSectcutCarousel = async () => {
   }, false)
 }
 
+const renderKeyframeCarousel = async () => {
+  const root = document.querySelector('.keyframe-carousel')
+  root.innerHTML = store.images.map((it, i) => {
+    return `<div class="image-item"
+      style="background: no-repeat center url('${it.src}');animation-delay: ${4000 * i}ms;"></div>`
+  }).join('')
+}
+
 nextTick(async () => {
   await renderSectcutCarousel()
+  await renderKeyframeCarousel()
 })
 
 createApp({

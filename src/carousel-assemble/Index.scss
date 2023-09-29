@@ -56,3 +56,54 @@ body {
     }
   }
 }
+
+.keyframe-carousel {
+  width: 560px;
+  height: 300px;
+  display: flex;
+  border: 1px solid #ddd;
+  box-sizing: content-box;
+  border-radius: 10px;
+  justify-content: flex-start;
+
+  .image-item {
+    width: 60px;
+    height: 100%;
+    margin-right: 10px;
+    border-radius: 30px;
+    background-size: cover;
+    animation: swiper 16s infinite;
+
+    --expand-width: 350px;
+    --shrink-width: 60px;
+    --expand-radio: 10px;
+    --shrink-radio: 30px;
+
+    &:last-child {
+      margin: 0;
+    }
+  }
+
+  @keyframes swiper {
+    0% {
+      width: var(--shrink-width);
+      border-radius: var(--shrink-radio);
+    }
+    6% {
+      width: var(--expand-width);
+      border-radius: var(--expand-radio);
+    }
+    26% {
+      width: var(--expand-width);
+      border-radius: var(--expand-radio);
+    }
+    38% {
+      width: var(--shrink-width);
+      border-radius: var(--shrink-radio);
+    }
+    100% {
+      width: var(--shrink-width);
+      border-radius: var(--shrink-radio);
+    }
+  }
+}
