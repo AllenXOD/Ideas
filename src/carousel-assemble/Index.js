@@ -3,7 +3,7 @@
  * @Date: 2023-09-29 10:30:16
  * @Email: xudong@adbright.cn
  * @LastEditors: AllenXD
- * @LastEditTime: 2023-09-29 16:03:27
+ * @LastEditTime: 2023-09-29 16:06:59
  * @Description: file information
  * @Company: your company
  */
@@ -27,9 +27,15 @@ const store = reactive({
 
 const renderOnlycssCarousel = async () => {
   const root = document.querySelector('.onlycss-carousel')
-  root.innerHTML += store.images.map((it, i) => {
-    return `<div class="image" style="background: no-repeat center url('${it.src}');"></div>`
-  }).join('')
+  let images = ''
+  let inputRadio = ''
+  let radioLabel = '<div class="control-visible">'
+  store.images.forEach((it, i) => {
+    images += `<div class="image" style="background: no-repeat center url('${it.src}');"></div>`
+    inputRadio += `<input type="radio" name="control" id="control-${i + 1}" ${i === 0 ? 'checked' : ''} />`
+    radioLabel += `<label for="control-${i + 1}"></label>`
+  })
+  root.innerHTML = inputRadio + radioLabel + '</div>' + images
 }
 
 const renderSectcutCarousel = async () => {
