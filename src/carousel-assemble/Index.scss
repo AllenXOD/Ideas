@@ -8,6 +8,14 @@ body {
   background-color: #333;
 }
 
+.carousel {
+  width: 560px;
+  height: 300px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #ddd;
+  box-sizing: content-box;
+}
 .carousel-before {
   white-space: pre;
   width: 100%;
@@ -26,15 +34,72 @@ body {
   border-radius: 10px 10px 5px 5px;
 }
 
+.onlycss-carousel {
+  @extend .carousel;
+  border-radius: 10px;
+  margin-top: 50px;
+
+  .control-visible {
+    position: absolute;
+    width: 100%;
+    bottom: 12px;
+    text-align: center;
+    z-index: 2;
+
+    label {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      background: #fff;
+      border-radius: 50%;
+      margin: 0 3px;
+      cursor: pointer;
+      border: 2px solid #fff;
+      transition: 200ms;
+    }
+  }
+
+  input[type="radio"] {
+    position: relative;
+
+    @for $i from 1 through 4 {
+      &:nth-of-type(#{$i}):checked {
+        & ~ .control-visible label:nth-of-type(#{$i}) {
+          background-color: #999;
+        }
+        & ~ .image {
+          transform: translateX(calc(-100% * #{$i - 1}));
+        }
+      }
+    }
+  }
+
+
+  .image {
+    width: inherit;
+    height: inherit;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: transform 600ms ease-in-out;
+
+    &:nth-of-type(2) {
+      left: 100%;
+    }
+    &:nth-of-type(3) {
+      left: 200%;
+    }
+    &:nth-of-type(4) {
+      left: 300%;
+    }
+  }
+}
+
 .sectcut-carousel {
   margin: 60px 0;
-  width: 560px;
-  height: 300px;
-  position: relative;
+  @extend .carousel;
   border-radius: 5px;
-  overflow: hidden;
-  border: 1px solid #ddd;
-  box-sizing: content-box;
+
 
   &::before {
     content: "3D 切割轮播图 demo \A Lorem ipsum dolor sit amet consectetur, adipisicing elit.";
@@ -62,15 +127,10 @@ body {
 }
 
 .keyframe-carousel {
-  width: 560px;
-  height: 300px;
+  @extend .carousel;
   display: flex;
-  border: 1px solid #ddd;
-  box-sizing: content-box;
   border-radius: 10px;
   justify-content: flex-start;
-  position: relative;
-  overflow: hidden;
 
   &::before {
     content: "keyframes 动画轮播图 demo \A Lorem ipsum dolor sit amet consectetur, adipisicing elit.";

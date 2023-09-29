@@ -3,7 +3,7 @@
  * @Date: 2023-09-29 10:30:16
  * @Email: xudong@adbright.cn
  * @LastEditors: AllenXD
- * @LastEditTime: 2023-09-29 13:09:33
+ * @LastEditTime: 2023-09-29 16:03:27
  * @Description: file information
  * @Company: your company
  */
@@ -24,6 +24,13 @@ const store = reactive({
     { position: '-448px' }
   ]
 })
+
+const renderOnlycssCarousel = async () => {
+  const root = document.querySelector('.onlycss-carousel')
+  root.innerHTML += store.images.map((it, i) => {
+    return `<div class="image" style="background: no-repeat center url('${it.src}');"></div>`
+  }).join('')
+}
 
 const renderSectcutCarousel = async () => {
   const root = document.querySelector('.sectcut-carousel')
@@ -76,6 +83,7 @@ const renderKeyframeCarousel = async () => {
 }
 
 nextTick(async () => {
+  await renderOnlycssCarousel()
   await renderSectcutCarousel()
   await renderKeyframeCarousel()
 })
