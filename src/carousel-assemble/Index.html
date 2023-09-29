@@ -3,7 +3,7 @@
  * @Date: 2023-09-29 10:30:08
  * @Email: xudong@adbright.cn
  * @LastEditors: AllenXD
- * @LastEditTime: 2023-09-29 16:07:02
+ * @LastEditTime: 2023-09-29 16:26:18
  * @Description: file information
  * @Company: your company
 -->
@@ -16,7 +16,22 @@
   <link rel="stylesheet" href="./Index.css">
 </head>
 <body>
-  <div class="onlycss-carousel"></div>
+  <div class="onlycss-carousel">
+    <template v-for="(it, i) in store.images">
+      <input type="radio" name="control"
+        :key="`radio-${i}`" :id="`control-${i}`" :checked="i === 0" />
+    </template>
+    <div class="control-visible">
+      <template v-for="(it, i) in store.images">
+        <label :key="`label-${i}`" :for="`control-${i}`"></label>
+      </template>
+    </div>
+
+    <template v-for="(it, i) in store.images">
+      <div class="image" :key="`image-${i}`"
+        :style="`background: no-repeat center url(${it.src});`"></div>
+    </template>
+  </div>
 
   <div class="sectcut-carousel"></div>
 

@@ -3,7 +3,7 @@
  * @Date: 2023-09-29 10:30:16
  * @Email: xudong@adbright.cn
  * @LastEditors: AllenXD
- * @LastEditTime: 2023-09-29 16:06:59
+ * @LastEditTime: 2023-09-29 16:25:03
  * @Description: file information
  * @Company: your company
  */
@@ -24,19 +24,6 @@ const store = reactive({
     { position: '-448px' }
   ]
 })
-
-const renderOnlycssCarousel = async () => {
-  const root = document.querySelector('.onlycss-carousel')
-  let images = ''
-  let inputRadio = ''
-  let radioLabel = '<div class="control-visible">'
-  store.images.forEach((it, i) => {
-    images += `<div class="image" style="background: no-repeat center url('${it.src}');"></div>`
-    inputRadio += `<input type="radio" name="control" id="control-${i + 1}" ${i === 0 ? 'checked' : ''} />`
-    radioLabel += `<label for="control-${i + 1}"></label>`
-  })
-  root.innerHTML = inputRadio + radioLabel + '</div>' + images
-}
 
 const renderSectcutCarousel = async () => {
   const root = document.querySelector('.sectcut-carousel')
@@ -89,7 +76,6 @@ const renderKeyframeCarousel = async () => {
 }
 
 nextTick(async () => {
-  await renderOnlycssCarousel()
   await renderSectcutCarousel()
   await renderKeyframeCarousel()
 })
