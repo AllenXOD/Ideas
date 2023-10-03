@@ -3,24 +3,44 @@
  * @Date: 2023-10-02 10:09:19
  * @Email: xudong@adbright.cn
  * @LastEditors: AllenXD
- * @LastEditTime: 2023-10-02 10:58:23
+ * @LastEditTime: 2023-10-03 14:20:21
  * @Description: file information
  * @Company: your company
  */
 // Todo: 判断浏览器是否支持 script importmap
 console.info('script importmap', HTMLScriptElement.supports && HTMLScriptElement.supports('importmap'));
 import * as THREE from "three";
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js'
 console.log('Scene', THREE.Scene);
+
 // Todo: 创建3D场景对象
 const scene = new THREE.Scene();
-const geometry = new THREE.BoxGeometry(100, 100, 100) // 长宽高
-const meterial = new THREE.MeshBasicMaterial({
-  color: 0xff0000, // 红色
+const geometry = new THREE.BoxGeometry(50, 50, 50) // 长宽高
+
+// Todo: MeshBasicMaterial不受光源影响
+// const material = new THREE.MeshBasicMaterial({
+//   color: 0xff0000, // 红色
+//   transparent: true,
+//   opacity: 0.45
+// })
+const material = new THREE.MeshLambertMaterial({
+  color: 0xff0ff0, // 红色材质
+  transparent: true, //开启透明
+  opacity: 0.7, //设置透明度
 })
-const mesh = new THREE.Mesh(geometry, meterial)
-mesh.position.set(0, 10, 0) // x轴 y轴 z轴
+const mesh = new THREE.Mesh(geometry, material)
+mesh.position.set(0, 0, 0) // x轴 y轴 z轴
 scene.add(mesh)
 console.log('mesh %o', mesh);
+
+// Todo: 点光源
+const light = new THREE.PointLight(0xffffff, 1, 0, 0)
+light.position.set(100, 50, 50);
+scene.add(light)
+
+// Todo: 辅助观察坐标系
+const axesHelper = new THREE.AxesHelper(150)
+scene.add(axesHelper)
 
 // Todo: 创建 Camera
 const canvas = {
@@ -34,8 +54,31 @@ camera.lookAt(mesh.position) // 观察目标坐标指向模型
 
 
 // Todo: 渲染
-const renderer = new THREE.WebGL1Renderer()
+const renderer = new THREE.WebGLRenderer()
 renderer.setSize(canvas.width, canvas.height)
 renderer.render(scene, camera) // 载入场景与视角
 // document.body.appendChild(renderer.domElement)
 document.querySelector('.webgl').appendChild(renderer.domElement)
+
+// Todo: 控制器
+const controls = new OrbitControls(camera, renderer.domElement)
+const cameraLog = ois(() => {
+  console.log('camera.position', camera.position);
+})
+controls.addEventListener('change', () => {
+  cameraLog()
+  renderer.render(scene, camera)
+}, false)
+
+
+function ois (fun) {
+  let timer = null
+  const _debounce = () => {
+    if (timer) clearTimeout(timer)
+
+    timer = setTimeout(() => {
+      fun()
+    }, 600)
+  }
+  return _debounce
+}
