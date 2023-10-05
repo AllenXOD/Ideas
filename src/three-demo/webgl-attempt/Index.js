@@ -3,7 +3,7 @@
  * @Date: 2023-10-02 10:09:19
  * @Email: xudong@adbright.cn
  * @LastEditors: AllenXD
- * @LastEditTime: 2023-10-05 11:52:17
+ * @LastEditTime: 2023-10-05 12:01:43
  * @Description: file information
  * @Company: your company
  */
@@ -102,6 +102,10 @@ async function lightFn () {
   scene.add(directionalHelper)
 }
 
+function toFixed (num = 1.00, sot = 2) {
+  return Number(num.toFixed(sot))
+}
+
 (() => {
   // let index = 0
   const clock = new THREE.Clock()
@@ -111,8 +115,8 @@ async function lightFn () {
     // console.log('执行次数 %n', index);
     const spt = clock.getDelta() * 1000 // 毫秒
     logN.info('渲染数据', 'requestAnimationFrame', {
-      'FPS': 1000/spt,
-      '时间间隔': spt
+      'FPS': toFixed((1000/spt)),
+      '时间间隔': toFixed(spt)
     })
     mesh.rotateX(0.1)
     renderer.render(scene, camera)
