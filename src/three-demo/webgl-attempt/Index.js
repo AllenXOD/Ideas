@@ -3,10 +3,11 @@
  * @Date: 2023-10-02 10:09:19
  * @Email: xudong@adbright.cn
  * @LastEditors: AllenXD
- * @LastEditTime: 2023-10-03 14:20:21
+ * @LastEditTime: 2023-10-05 11:52:17
  * @Description: file information
  * @Company: your company
  */
+import { logN } from '/src/log.js'
 // Todo: 判断浏览器是否支持 script importmap
 console.info('script importmap', HTMLScriptElement.supports && HTMLScriptElement.supports('importmap'));
 import * as THREE from "three";
@@ -33,14 +34,7 @@ mesh.position.set(0, 0, 0) // x轴 y轴 z轴
 scene.add(mesh)
 console.log('mesh %o', mesh);
 
-// Todo: 点光源
-const light = new THREE.PointLight(0xffffff, 1, 0, 0)
-light.position.set(100, 50, 50);
-scene.add(light)
-
-// Todo: 辅助观察坐标系
-const axesHelper = new THREE.AxesHelper(150)
-scene.add(axesHelper)
+lightFn()
 
 // Todo: 创建 Camera
 const canvas = {
@@ -52,11 +46,14 @@ const camera = new THREE.PerspectiveCamera(45, canvas.width/canvas.height, 0.1, 
 camera.position.set(200, 200, 200)
 camera.lookAt(mesh.position) // 观察目标坐标指向模型
 
+// Todo: 辅助观察坐标系
+const axesHelper = new THREE.AxesHelper(150)
+scene.add(axesHelper)
 
 // Todo: 渲染
 const renderer = new THREE.WebGLRenderer()
 renderer.setSize(canvas.width, canvas.height)
-renderer.render(scene, camera) // 载入场景与视角
+// renderer.render(scene, camera) // 载入场景与视角
 // document.body.appendChild(renderer.domElement)
 document.querySelector('.webgl').appendChild(renderer.domElement)
 
@@ -67,18 +64,60 @@ const cameraLog = ois(() => {
 })
 controls.addEventListener('change', () => {
   cameraLog()
-  renderer.render(scene, camera)
+  // renderer.render(scene, camera)
 }, false)
 
-
-function ois (fun) {
+function ois (fun, time = 600) {
   let timer = null
   const _debounce = () => {
     if (timer) clearTimeout(timer)
 
     timer = setTimeout(() => {
       fun()
-    }, 600)
+    }, time)
   }
   return _debounce
 }
+
+async function lightFn () {
+  // Todo: 点光源
+  const light = new THREE.PointLight(0xffffff, 1, 0, 0)
+  light.position.set(100, 50, 50);
+  // scene.add(light)
+  // Todo: 可视化点光源
+  const lightHelper = new THREE.PointLightHelper(light, 5)
+  scene.add(lightHelper)
+
+  // Todo: 环境光
+  const ambient = new THREE.AmbientLight(0xffffff, 0.85)
+  // scene.add(ambient)
+
+  // Todo: 平行光 - 两点一线
+  const directional = new THREE.DirectionalLight(0xffffff, 1)
+  directional.position.set(80, 90, 50) // 光源起始坐标
+  directional.target = mesh // 光源指向模型对象，不设置默认坐标原点
+  scene.add(directional)
+  // Todo: 可视化平行光
+  const directionalHelper = new THREE.DirectionalLightHelper(directional, 5, 0xff0000)
+  scene.add(directionalHelper)
+}
+
+(() => {
+  // let index = 0
+  const clock = new THREE.Clock()
+  function renderAnimation () {
+    // if (index > 500) return
+    // index++
+    // console.log('执行次数 %n', index);
+    const spt = clock.getDelta() * 1000 // 毫秒
+    logN.info('渲染数据', 'requestAnimationFrame', {
+      'FPS': 1000/spt,
+      '时间间隔': spt
+    })
+    mesh.rotateX(0.1)
+    renderer.render(scene, camera)
+    // Todo: 理论上可以达到每秒执行60次
+    requestAnimationFrame(renderAnimation)
+  }
+  renderAnimation()
+})();

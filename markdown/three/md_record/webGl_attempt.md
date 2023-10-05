@@ -3,7 +3,7 @@
  * @Date: 2023-10-02 10:06:58
  * @Email: xudong@adbright.cn
  * @LastEditors: AllenXD
- * @LastEditTime: 2023-10-03 11:28:59
+ * @LastEditTime: 2023-10-05 10:32:13
  * @Description: file information
  * @Company: your company
 -->
@@ -27,3 +27,7 @@
 ## Renderer
 
 > webGL渲染器 `webGLRenderer`
+
+## animation
+
+> `window.requestAnimationFrame` 动画帧
