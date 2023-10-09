@@ -1,10 +1,19 @@
+<!--
+ * @Author: AllenXD
+ * @Date: 2023-09-27 10:46:10
+ * @Email: xudong@adbright.cn
+ * @LastEditors: AllenXD
+ * @LastEditTime: 2023-10-09 12:16:19
+ * @Description: file information
+ * @Company: your company
+-->
 # Git 日常使用
 ---
 
 1. 创建仓库
 2. Git Bash Here
 	- 创建本地仓库
-	`git init` 
+	`git init`
 3. 添加文件至暂存区
 	`git add <fliename>`
 	`git add .`
