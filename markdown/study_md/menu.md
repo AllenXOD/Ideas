@@ -1,1 +1,0 @@
-![[study_md/md_record/20220824]]

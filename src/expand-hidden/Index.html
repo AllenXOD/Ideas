@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>展开--隐藏动画</title>
+  <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+
+  <div class="btn">hover</div>
+  <div class="text">
+    <div class="content">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Earum libero animi dolorum, nostrum non odio laudantium eos perferendis quo deserunt at, assumenda impedit sed velit optio facilis laborum quidem praesentium?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab quas sapiente autem voluptatum consectetur, ducimus, cumque, incidunt illum labore explicabo dignissimos aliquam reprehenderit libero voluptatem reiciendis possimus? Vitae, sint illo.</div>
+  </div>
+
+  <script>
+    const btn = document.querySelector('.btn')
+    const text = document.querySelector('.text')
+    btn.onmouseenter = () => {
+      text.style.height = 'auto'
+      const { height } = text.getBoundingClientRect()
+      text.style.height = 0
+      text.offsetHeight // Todo: 强制重绘
+      text.style.opacity = 1
+      text.style.height = `${height}px`
+    }
+    btn.onmouseleave = () => {
+      text.style.height = 0
+      text.style.opacity = 0.5
+    }
+  </script>
+</body>
+</html>

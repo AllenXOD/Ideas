@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "953b360f30308cbf",
+        "id": "d0227299db8bb0e5",
         "type": "tabs",
         "children": [
           {
-            "id": "e79720fbb93b824e",
+            "id": "b2f011a78da0c195",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -138,7 +138,7 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "e79720fbb93b824e",
+  "active": "203af654e83777bf",
   "lastOpenFiles": [
     "study_md/md_record/20230927.md",
     "study_md/md_record/20220824.md",
