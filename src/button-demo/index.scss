@@ -1,0 +1,36 @@
+@import "../common.scss";
+@import "./button-scss/one.scss";
+
+body {
+  margin: 20px 0;
+}
+.box-wrap {
+  padding: 20px;
+  margin: 0 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 20px;
+
+  &-item {
+    width: 380px;
+    height: 380px;
+    flex-grow: 1;
+    border: 1px solid rgba($color: #000, $alpha: 0.05);
+    border-radius: 10px;
+    transition: 300ms;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 16px rgba($color: #000, $alpha: 0.2);
+    }
+
+    &:nth-child(1) {
+      @extend .one;
+    }
+  }
+}

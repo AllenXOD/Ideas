@@ -3,7 +3,7 @@
  * @Date: 2023-10-07 09:58:10
  * @Email: xudong@adbright.cn
  * @LastEditors: AllenXD
- * @LastEditTime: 2023-10-07 10:02:07
+ * @LastEditTime: 2023-10-19 09:47:48
  * @Description: file information
  * @Company: your company
  */
@@ -28,4 +28,13 @@ class UseDom {
     document.body.removeChild(element)
     return false
   }
+
+  static getStyle = (function () {
+    if (window.document.currentStyle) {
+      return (dom, attr) => dom.currentStyle[attr]
+    } else {
+      // Todo: 获取原有属性 ie dom元素.currentStyle 火狐谷歌 window.getComputedStyle(dom元素, null);
+      return (dom, attr) => getComputedStyle(dom, false)[attr]
+    }
+  })()
 }
